@@ -27,7 +27,24 @@
               <div class="todo-card">
                 <div class="t-line">
                   <div class="todo-box">
-                    <span id="task"></span>
+                    <pre>
+                      <py-script>
+                        from app import GetTasks
+                        try:
+                          loop = asyncio.get_event_loop()
+                        except:
+                          print("404")
+                        task = await loop.run_until_complete(GetTasks())
+                        i = 0
+                        parent = document.querySelector("#todo-box")
+                        for t in task:
+                          i +=1
+                          <span>print(f"{i} {t['task']}")</span>
+                          <button class="btn btn-danger btn-outline-white  mt-5" type="button">f"delete"</button>
+                
+                        </py-script>
+                    </pre>
+                    
                   </div>
                 </div>
 
@@ -37,18 +54,7 @@
         </div>
       </div> 
   </section>
-<py-script>
-from app import GetTasks
-try:
-  loop = asyncio.get_event_loop()
-except:
-  print("404")
-task = await loop.run_until_complete(GetTasks())
-i = 0
-for t in task:
-  i+=1
-  pyscript.write('task', f'{t["task"]}')
-</py-script>
+
 
 
 <py-button class="btn">Submit</py-button>

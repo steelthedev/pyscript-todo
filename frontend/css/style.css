@@ -12,3 +12,10 @@ body{
     height: 400px;
     padding: 20px;
 }
+
+
+.todo-box h6{
+    padding: 20px;
+    border: 2px solid #000;
+    margin-top: 20px;
+}
