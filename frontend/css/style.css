@@ -14,17 +14,28 @@ body{
 }
 
 
-.todo-box h2{
-    padding: 20px;
-    border: 2px solid #000;
-    margin-top: 20px;
-}
-.todo-box button{
-    color: #fff;
-    background: rgb(255, 0, 0, 0.8);
-    padding: 15px;
-    margin-top: 10px;
-    border-radius: 4px;
+.todo-box{
+    padding: 10px;
 }
 
+.todo-box h6{
+    padding: 30px;
+    border: 2px solid #000;
+    margin-top: 5px;
+}
+
+.todo-box .btn-delete{
+    padding: 10px;
+    width: 100px;
+    height: 80px;
+    margin-top: 5px;
+}
+
+.todo-box .btn-add{
+    padding: 10px;
+    width: 100px;
+    height: 50px;
+    margin-top: 4px;
+    
+}
 
