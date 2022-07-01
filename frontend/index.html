@@ -6,15 +6,21 @@
   <title>Hello, World!</title>
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
-  <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+  <link rel="stylesheet" href="pyscript/pyscript.css" />
+  <script defer src="pyscript/pyscript.js"></script>
  
 
 </head>
 <body>
     <py-env>
+    - autoclose_loader: true
+    - runtimes:
+      -
+        src: "/pyodide.js"
+        name: pyodide-0.20
+        lang: python
     - paths:
-        - pyscript/app.py
+        - script/app.py
   </py-env>
   <section class="todo">
     <div class="container">
@@ -30,7 +36,7 @@
                     <div class="row" id="todo-row">
                       <div class="form-group">
                         <input type="text" name="addtodo" id="taskadd" class="form-control">
-                        <button pys-onclick="create" id="add-btn" class="btn shadow-none btn-outline-light btn-add btn-primary">Add</button>
+                        <button pys-onClick="create" id="add" type="button" class="btn shadow-none mt-2 btn-outline-light btn-add btn-primary" >Add</button>
                     </div>
                      
                     </div>
@@ -44,7 +50,7 @@
       </div> 
   </section>
   <py-script output="todo-row">
-    from app import GetTasks,delete
+    from app import GetTasks,delete,create
     from pyodide import create_proxy
     try:
       loop = asyncio.get_event_loop()

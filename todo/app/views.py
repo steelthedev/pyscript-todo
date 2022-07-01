@@ -15,14 +15,12 @@ def GetTodo(request):
         serializer = TodoSerializer(todo, many=True)
         return Response(serializer.data)
     if request.method == "POST":
-        try:
-            todo = Todo.objects.all()
-        except:
-            return HttpResponse(status = 404)
-        serializer = TodoSerializer(todo, data=request.data)
+        print(request.data)
+        serializer = TodoSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
+        return HttpResponse(status=201)
 
 @api_view(["DELETE"])
 def DeleteTodo(request,id):
